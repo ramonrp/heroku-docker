@@ -13,6 +13,6 @@ COPY --from=build-front /usr/app/dist $STATIC_FILES_PATH
 COPY ./server/package.json ./
 COPY ./server/package-lock.json ./
 COPY ./server/index.js ./
-
+RUN npm ci --only=production
 
 ENTRYPOINT ["node","index"]
