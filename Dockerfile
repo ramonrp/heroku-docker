@@ -7,7 +7,7 @@ COPY ./ ./
 RUN npm ci
 RUN npm run build
 
-FROM build-front AS release
+FROM base AS release
 ENV STATIC_FILES_PATH=./public 
 COPY --from=build-front /usr/app/dist $STATIC_FILES_PATH
 COPY ./server/package.json ./
